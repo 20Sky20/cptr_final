@@ -86,12 +86,12 @@ window.addEventListener('DOMContentLoaded', DOMContentLoaded => {
         // MOVEMENT
         const movement = new THREE.Vector3(keyboard.d - keyboard.a, 0,keyboard.s - keyboard.w);
         movement.normalize();
-        movement.multiplyScalar(1 / 8);
+        movement.multiplyScalar(1 / 4);
         movement.applyAxisAngle(new THREE.Vector3(0, 1, 0), player.rotation.y);
         player.position.add(movement);
 
         // RAYCASTING
-
+        
 
 
         // RENDER
