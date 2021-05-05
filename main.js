@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', DOMContentLoaded => {
     const camera = new THREE.PerspectiveCamera(75, renderer.domElement.clientWidth / renderer.domElement.clientHeight, 0.1, 50000); 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x7700EE);
-    scene.fog = new THREE.FogExp2(scene.background, 0.04);
+    scene.fog = new THREE.FogExp2(scene.background, 0.03);
     
     
 
@@ -84,11 +84,10 @@ window.addEventListener('DOMContentLoaded', DOMContentLoaded => {
     const animation = timestamp => {
 
         // MOVEMENT
-        const speed = 10;
-        const movement = new THREE.Vector3( speed * (keyboard.d - keyboard.a), 0, speed * (keyboard.s - keyboard.w));
+        const movement = new THREE.Vector3(keyboard.d - keyboard.a, 0,keyboard.s - keyboard.w);
         movement.normalize();
         movement.multiplyScalar(1 / 8);
-        movement.applyAxisAngle(new THREE.Vector3(0, 1, 1), player.rotation.y);
+        movement.applyAxisAngle(new THREE.Vector3(0, 1, 0), player.rotation.y);
         player.position.add(movement);
 
         // RAYCASTING
